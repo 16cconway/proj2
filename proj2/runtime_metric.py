@@ -16,7 +16,7 @@ class RuntimeMetric:
 
         return self.time
 
-    def get_size(self) -> int:
+    def store_size(self) -> int:
         """
         Fetches the size of the problem.
         :return: A size that is determined by the way the problem is stated.
