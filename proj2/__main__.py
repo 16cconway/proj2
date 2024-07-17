@@ -6,7 +6,7 @@
 from pathlib import Path
 import argparse
 from sys import stderr
-from proj1 import convert_prefix_to_postfix
+from proj2 import convert_prefix_to_postfix
 
 # Parse the arguments from the command line
 arg_parser = argparse.ArgumentParser()

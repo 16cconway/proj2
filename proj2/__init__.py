@@ -6,4 +6,4 @@
 # Here we're very simply making it easier for other scripts to access the
 # convert_prefix_to_postfix function. Note: other scripts and functions are
 # still accessible
-from proj1.proj1 import convert_prefix_to_postfix
+from proj2.proj2 import convert_prefix_to_postfix
