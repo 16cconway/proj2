@@ -6,6 +6,16 @@ from time import time_ns
 from runtime_metric import RuntimeMetric
 
 
+def get_valid_char(in_str: str) -> str:
+    space_chars = ["\n", "\t", " "]
+
+    char = in_str[0]
+    while char not in space_chars:
+        char = in_str[0]
+        in_str = in_str[1:]
+    return char
+
+
 def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     """
     Reads prefix expressions from an input file and directly writes them as
@@ -15,8 +25,12 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     :param
     :return:
     """
+
     valid_ops = ["+", "-", "*", "/", "$", "^"]
+
     char = in_str[0]
+
+
     in_str = in_str[1:]
 
     if in_str[0] in valid_ops:
