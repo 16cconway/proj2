@@ -6,7 +6,7 @@
 from pathlib import Path
 import argparse
 from sys import stderr
-from proj2 import convert_prefix_to_postfix
+from proj2 import starter_func
 
 # Parse the arguments from the command line
 arg_parser = argparse.ArgumentParser()
@@ -22,6 +22,6 @@ out_path = Path(args.out_file)
 # call convert function
 try:
     with in_path.open('r') as input_file, out_path.open('w') as output_file:
-        convert_prefix_to_postfix(input_file, output_file)
+        starter_func(input_file, output_file)
 except FileNotFoundError:
     print("Error: Input file was not found", file=stderr)

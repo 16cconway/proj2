@@ -1,9 +1,9 @@
 
 
 from typing import TextIO
-from sys import stderr
-from time import time_ns
-from runtime_metric import RuntimeMetric
+# from sys import stderr
+# from time import time_ns
+# from runtime_metric import RuntimeMetric
 
 
 def get_valid_char(in_str: str) -> tuple:
@@ -50,19 +50,14 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     return post, in_str
 
 
-with open("../resources/input/RequiredInput.txt") as input_file:
+def starter_func(input_file: TextIO, output_file: TextIO) -> None:
     lines = input_file.readlines()
-
-inp = lines[0]
-
-res, end_str = convert_prefix_to_postfix_recursive(inp)
-print(inp)
-print(res)
-
-
-def helper():
     for line in lines:
+        post, in_str = convert_prefix_to_postfix_recursive
+
         if line[len(line)-1] == "\n":
-            write(f"prefix: {line}")
+            output_file.write(f"Prefix: {line}")
         else:
-            write(f"prefix: {line} \n")
+            output_file.write(f"Prefix: {line} \n")
+
+        output_file.write(f"Postfix: {post}")
