@@ -12,6 +12,8 @@ def get_valid_char(in_str: str) -> tuple:
     char = in_str[0]
     while char in space_chars:
         in_str = in_str[1:]
+        if not bool(in_str):
+            return 0, in_str
         char = in_str[0]
     return char, in_str
 
@@ -53,11 +55,11 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
 def starter_func(input_file: TextIO, output_file: TextIO) -> None:
     lines = input_file.readlines()
     for line in lines:
-        post, in_str = convert_prefix_to_postfix_recursive
+        post, in_str = convert_prefix_to_postfix_recursive(line)
 
         if line[len(line)-1] == "\n":
             output_file.write(f"Prefix: {line}")
         else:
             output_file.write(f"Prefix: {line} \n")
 
-        output_file.write(f"Postfix: {post}")
+        output_file.write(f"Postfix: {post}\n\n")
