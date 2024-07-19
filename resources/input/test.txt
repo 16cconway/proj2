@@ -1,3 +1,2 @@
-++BAA+
-**A+BC+C-BA
-/A+BC +C*BA
+//A+B0-C+BA
+*$A^BC+C-BA

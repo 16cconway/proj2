@@ -1,9 +1,6 @@
-Prefix: ++BAA+
-Error input line 1: Not enough operators 
+Prefix: //A+B0-C+BA
+Input line 1: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
 
-Prefix: **A+BC+C-BA
-Postfix: ABC+*CBA-+*
-
-Prefix: /A+BC +C*BA
-Error input line 3: Not enough operators 
+Prefix: *$A^BC+C-BA
+Postfix: ABC^$CBA-+*
 
