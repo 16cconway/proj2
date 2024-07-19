@@ -1,0 +1,33 @@
+Prefix: -+ABC
+Postfix: AB+C-
+
+Prefix: -A+BC
+Postfix: ABC+-
+
+Prefix: $+-ABC+D-EF
+Postfix: AB-C+DEF-+$
+
+Prefix: -*A$B+C-DE*EF
+Postfix: ABCDE-+$*EF*-
+
+Prefix: **A+BC+C-BA
+Postfix: ABC+*CBA-+*
+
+Prefix: /A+BC +C*BA
+Error input line 6: Not enough operators 
+
+Prefix: *-*-ABC+BA
+Error input line 7: Too many operators 
+
+Prefix: /+/A-BC-BA
+Error input line 8: Too many operators 
+
+Prefix: *$A+BC+C-BA
+Postfix: ABC+$CBA-+*
+
+Prefix: //A+B0-C+BA
+Postfix: AB0+/CBA+-/
+
+Prefix: *$A^BC+C-BA
+Postfix: ABC^$CBA-+*
+

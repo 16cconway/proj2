@@ -1,3 +1,3 @@
--+ABC
--A+BC
-
+++BAA+
+**A+BC+C-BA
+/A+BC +C*BA

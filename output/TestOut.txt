@@ -1,0 +1,9 @@
+Prefix: ++BAA+
+Error input line 1: Not enough operators 
+
+Prefix: **A+BC+C-BA
+Postfix: ABC+*CBA-+*
+
+Prefix: /A+BC +C*BA
+Error input line 3: Not enough operators 
+
