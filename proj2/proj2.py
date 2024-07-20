@@ -1,5 +1,3 @@
-
-
 from typing import TextIO
 from sys import stderr
 from time import time_ns
@@ -14,7 +12,8 @@ def get_valid_char(in_str: str) -> tuple:
     letters and operators +, -, *, /, $, and ^
     @param in_str: input string
     @return: char, in_str: tuple of the next character and the updated
-    in_str. Returns character and -2 for in_str if next character is invalid
+    in_str. Returns character for char and -2 for in_str if next character is
+    invalid
     """
 
     # List of Valid Operators
