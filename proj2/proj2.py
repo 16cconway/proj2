@@ -225,4 +225,3 @@ def starter_func(input_file: TextIO, output_file: TextIO) -> None:
     metric = RuntimeMetric(get_input_size(lines), end_time - start_time)
     output_file.write(f"Input Size: {metric.store_size()}\nRun Time:"
                       f" {metric.get_runtime()}ns\n")
-
