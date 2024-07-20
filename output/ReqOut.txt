@@ -13,21 +13,23 @@ Postfix: ABCDE-+$*EF*-
 Prefix: **A+BC+C-BA
 Postfix: ABC+*CBA-+*
 
-Prefix: /A+BC +C*BA
-Error input line 6: Expression not in prefix notation. Check that operators are left of two operands 
+Prefix: /A+BC +C*BA  
+Error input line 6: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
 
-Prefix: *-*-ABC+BA
-Error input line 7: Too many operators
+Prefix: *-*-ABC+BA  
+Error input line 7: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
 
-Prefix: /+/A-BC-BA
-Error input line 8: Too many operators
+Prefix: /+/A-BC-BA  
+Error input line 8: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
 
-Prefix: *$A+BC+C-BA
+Prefix: *$A+BC+C-BA 
 Postfix: ABC+$CBA-+*
 
 Prefix: //A+B0-C+BA
-Input line 10: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
+Error input line 10: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
 
-Prefix: *$A^BC+C-BA
+Prefix: *$A^BC+C-BA					
 Postfix: ABC^$CBA-+*
 
+Input Size: 159
+Run Time: 245000ns

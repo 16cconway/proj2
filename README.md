@@ -1,9 +1,9 @@
 # Proj 2
 
-This is a python module for 605.202 Data Structures Lab 1. It converts 
-expressions directly from prefix to postfix. For example, the string "-A+BC" 
-is a prefix expression, and the program will directly convert it to "ABC+-" 
-which is the equivalent postfix expression.
+This is a python module for 605.202 Data Structures Lab 2. It converts 
+expressions directly from prefix to postfix using recursion. For example, the 
+string "-A+BC" is a prefix expression, and the program will directly convert 
+it to "ABC+-" which is the equivalent postfix expression.
 
 ## Running Proj 2
 
@@ -59,8 +59,6 @@ text file. If the file does not exist, the program will create it.
 ### Output for Invalid Inputs
 * Inputted Prefix Expression
 * Error Explained
-* Number of Operators
-* Number of Operands
 
 > **Note:** Errors are also printed to the console
 
@@ -86,15 +84,9 @@ Python 3.11
 * `sys`
   * Used to handle errors and printing them to the console
 * `proj2.modify_strings`
-  * Developer created script that contains functions for string manipulation 
-* `proj2.stack`
-  * Developer created class of Stack to represent the stack data structure
-* `proj2.get_count`
-  * Developer created script that contains a function to get the number of operators and number of 
-    operands of given string
+  * Developer created script that contains functions for string manipulation--
 * `typing`
-  * Used to specify type hints of TextIO for 
-    conversion function
+  * Used to specify type hints of TextIO for starter function
 * `time`
   * Used to calculate run time metrics for later analysis
 * `proj2.runtime_metric`

@@ -1,5 +1,14 @@
+Prefix: A+AB+AB
+Error input line 1: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: /+AB+AB
+Postfix: AB+AB+/
+
+Prefix: -*-ABCDE
+Error input line 3: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
 Prefix: //A+B0-C+BA
-Input line 1: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
+Error input line 4: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
 
 Prefix: *$A^BC+C-BA
 Postfix: ABC^$CBA-+*
