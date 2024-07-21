@@ -3,6 +3,7 @@ Error input line 1: Expression not in prefix notation. Check that there exists o
 
 Prefix: /+AB+AB
 Postfix: AB+AB+/
+Infix: ((A+B)/(A+B))
 
 Prefix: -*-ABCDE
 Error input line 3: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
@@ -12,4 +13,7 @@ Error input line 4: Invalid character: '0'. Only accepts alphabet letters and op
 
 Prefix: *$A^BC+C-BA
 Postfix: ABC^$CBA-+*
+Infix: ((A$(B^C))*(C+(B-A))
 
+Input Size: 49
+Run Time: 190000ns

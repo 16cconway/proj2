@@ -3,48 +3,7 @@ from sys import stderr
 from time import time_ns
 from proj2.runtime_metric import RuntimeMetric
 from proj2.get_input_size import get_input_size
-
-
-def get_valid_char(in_str: str) -> tuple:
-    """
-    Reads the next character of input string until a character that is not a
-    tab ("\t"), space (" "), nor a  ("\n"). Valid Characters are alphabet
-    letters and operators +, -, *, /, $, and ^
-    @param in_str: input string
-    @return: char, in_str: tuple of the next character and the updated
-    in_str. Returns character for char and -2 for in_str if next character is
-    invalid
-    """
-
-    # List of Valid Operators
-    valid_ops = ["+", "-", "*", "/", "$", "^"]
-
-    # Space characters that are to be skipped over
-    space_chars = ["\n", "\t", " "]
-
-    # Check that the input string is not already empty
-    if not bool(in_str):
-        return -1, in_str
-    else:
-        char = in_str[0]
-
-    # Continue looping through and deleting characters from the input string
-    # until a non-space character is found. -1 indicator used for empty string
-    while char in space_chars:
-        in_str = in_str[1:]
-
-        # After each removal of a character from the input string, check if
-        # the string is empty. -1 indicator used for empty string
-        if not bool(in_str):
-            return -1, in_str
-        char = in_str[0]
-
-    # Check that the character is a valid alphabet letter operand or a
-    # valid operator
-    if not char.isalpha() and char not in valid_ops:
-        return char, -2
-
-    return char, in_str
+from proj2.get_valid_char import get_valid_char
 
 
 def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
@@ -53,7 +12,8 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     postfix expression using recursion. Space characters are ignored. Only
     alphabet letters and operators accepted. (num_operators == num_operands - 1)
     :param in_str: input prefix string
-    :return: post, in_str: postfix expression, ending state of input str
+    :return: post, in_str, infix: postfix expression, ending state of input
+    str, infix expression
     """
 
     # List of Valid Operators
@@ -65,12 +25,12 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     # Check that the first character is an operator. If not, then the input is
     # not in prefix form. Return -1 in place of char as indicator
     if char not in valid_ops:
-        return -1, in_str
+        return -1, in_str, -1
 
     # Check if the character is valid. If not return that character and -2
     # in place of in_str as indicator
     if in_str == -2:
-        return char, -2
+        return char, -2, -2
 
     # Remove the read in character from the string
     else:
@@ -82,31 +42,34 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     # Check if no more characters are in the string. If so, return -1 in
     # place of temp character as indicator
     if temp == -1:
-        return -1, in_str
+        return -1, in_str, -1
 
     # Check if read in character was valid. If not, return that character and -2
     # in place of in_str as indicator
     elif in_str == -2:
-        return temp, -2
+        return temp, -2, -1
 
     # Check if the read in character is an operator. If so, call the function
     # again
     elif temp in valid_ops:
-        char1, in_str = convert_prefix_to_postfix_recursive(in_str)
+        char1, in_str, char1_infix = convert_prefix_to_postfix_recursive(in_str)
 
         # Check if no more characters in string. If so, return -1 in place of
         # temp character as indicator
         if char1 == -1:
-            return -1, in_str
+            return -1, in_str, -1
 
         # Check if read in character was valid. If not return that character
         # and -2 in place of in_str as indicator
         elif in_str == -2:
-            return char1, -2
+            return char1, -2, -2
 
     # If else reached, set char1 to temp as first operand operator in char
     else:
         char1 = temp
+
+        # Character 1 for infix notation
+        char1_infix = temp
 
         # Remove char1 from the string
         in_str = in_str[1:]
@@ -117,31 +80,34 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     # Check if no more characters in the string. If so, return -1 in
     # place of temp character as indicator
     if temp == -1:
-        return -1, in_str
+        return -1, in_str, -1
 
     # Check if read in character was valid. If not, return that character and -2
     # in place of in_str as indicator
     elif in_str == -2:
-        return temp, -2
+        return temp, -2, -2
 
     # Check if the read in character is an operator. If so, call the function
     # again
     elif temp in valid_ops:
-        char2, in_str = convert_prefix_to_postfix_recursive(in_str)
+        char2, in_str, char2_infix = convert_prefix_to_postfix_recursive(in_str)
 
         # Check if no more characters in the string. If so, return -1 in
         # place of temp character as indicator
         if char2 == -1:
-            return -1, in_str
+            return -1, in_str, -1
 
         # Check if read in character was valid. If not return that character
         # and -2 in place of in_str as indicator
         elif in_str == -2:
-            return char2, -2
+            return char2, -2, -2
 
     # If else reached, set char2 to temp as second operand for operator in char
     else:
         char2 = temp
+
+        # Character 2 for infix notation
+        char2_infix = temp
 
         # Remove char2 from the string
         in_str = in_str[1:]
@@ -150,8 +116,11 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
     # char2 and operator in char
     post = char1 + char2 + char
 
+    # Assemble Infix notation of same characters
+    infix = "(" + char1_infix + char + char2_infix + ")"
+
     # Return postfix and current state of input string
-    return post, in_str
+    return post, in_str, infix
 
 
 def starter_func(input_file: TextIO, output_file: TextIO) -> None:
@@ -175,7 +144,7 @@ def starter_func(input_file: TextIO, output_file: TextIO) -> None:
             continue
 
         # Call the convert function on the line
-        post, end_str = convert_prefix_to_postfix_recursive(line)
+        post, end_str, infix = convert_prefix_to_postfix_recursive(line)
 
         # Write the input expression to the output file accounting for
         # possible new line characters
@@ -215,7 +184,10 @@ def starter_func(input_file: TextIO, output_file: TextIO) -> None:
             # If no errors occur, write the computed postfix expression to
             # the output file
             else:
-                output_file.write(f"Postfix: {post}\n\n")
+                output_file.write(f"Postfix: {post}\n")
+
+                # Write the corresponding infix expression to the output file
+                output_file.write(f"Infix: {infix[1:-1]}\n\n")
 
     # End time for analyzing computation time of input
     end_time = time_ns()

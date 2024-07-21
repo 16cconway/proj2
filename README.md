@@ -12,7 +12,7 @@ it to "ABC+-" which is the equivalent postfix expression.
 3. Run the program as a module: `python -m proj2 -h`. This will print the help message.
 4. Run the program as a module (with real inputs): `python -m proj2 <some_input_file> <some_output_file>`
 
-   IE: `python -m proj2 resources/input/RequiredInput.txt out.txt`
+   IE: `python -m proj2 resources/input/RequiredInput.txt output/ReqOut.txt`
 
 Output will be written to the specified output file after processing the input file.
 
@@ -41,12 +41,11 @@ are ignored, and spaces or tabs within or at the ends of a line are also
 ignored.
 
 ### Valid Inputs
-Inputs should contain **alphabet letters** or **operators** (+, -, /, *, ^, 
-or $). * represents multiplication. $ and ^ both represent exponentiation. 
-The number of operators must equal the number of operands minus 1. The 
-expression must be in a valid prefix form. Any character other than alphabet 
-letters and these operators will result in an error for that line of the 
-input file. 
+Inputs should contain **operators** (+, -, /, *, ^, $) or **alphabet 
+letters** only. * represents multiplication. $ and ^ both represent 
+exponentiation. The number of operators must equal the number of operands 
+minus 1. The expression must be in a valid prefix form where every one 
+operator must be on the left of two operands.
 
 ## Output
 The second positional argument is the output file. This file should be a 
@@ -55,6 +54,7 @@ text file. If the file does not exist, the program will create it.
 ### Output for Valid Inputs
 * Inputted Prefix Expression
 * Equivalent Postfix Expression
+* Equivalent Infix Expression
 
 ### Output for Invalid Inputs
 * Inputted Prefix Expression
@@ -63,7 +63,7 @@ text file. If the file does not exist, the program will create it.
 > **Note:** Errors are also printed to the console
 
 ### Ending Output
-* Input Size (number of characters in entire input file)
+* Input Size (number of characters in the entire input file)
 * Runtime 
 
 ## Python Packaging
@@ -76,25 +76,33 @@ Python 3.11
 
 ### Python Packages
 
-* `pathlib`
-    * Used for creating paths from input and output arguments
 * `argparse`
     * Used for parsing the command line arguments containing the 
       input and output text files
+* `pathlib`
+    * Used for creating paths from input and output arguments
 * `sys`
   * Used to handle errors and printing them to the console
-* `proj2.modify_strings`
-  * Developer created script that contains functions for string manipulation--
 * `typing`
   * Used to specify type hints of TextIO for starter function
 * `time`
   * Used to calculate run time metrics for later analysis
 * `proj2.runtime_metric`
-  * Provided sample code for class of RuntimeMetric to contain size of an input and duration 
-    of the solution
+  * Provided sample code for class of RuntimeMetric to contain size of an 
+    input and duration of the solution
 * `proj2.get_input_size`
   * Developer created script used for getting the size of the input for time 
     complexity analysis
+* `proj2.modify_strings`
+  * Developer created script that contains functions for string manipulation
+* `proj2.get_valid_char`
+  * Developer created script used to read next non whitespace character from 
+    input string
+* `proj2.prefix_to_infix_recursive`
+  * Developer created script to convert a prefix expression to infix using 
+    recursion. This script is **not** used in the project's delivery as 
+    this conversion was done during prefix to postfix conversion for 
+    improved time complexity.
 
 ### Project Layout
 
