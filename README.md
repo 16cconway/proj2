@@ -93,8 +93,6 @@ Python 3.11
 * `proj2.get_input_size`
   * Developer created script used for getting the size of the input for time 
     complexity analysis
-* `proj2.modify_strings`
-  * Developer created script that contains functions for string manipulation
 * `proj2.get_valid_char`
   * Developer created script used to read next non whitespace character from 
     input string
