@@ -87,6 +87,8 @@ Python 3.11
   * Used to specify type hints of TextIO for starter function
 * `time`
   * Used to calculate run time metrics for later analysis
+* `proj1.modify_strings`
+  * Developer created script that contains functions for string manipulation 
 * `proj2.runtime_metric`
   * Provided sample code for class of RuntimeMetric to contain size of an 
     input and duration of the solution

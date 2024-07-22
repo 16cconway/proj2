@@ -4,6 +4,7 @@ from time import time_ns
 from proj2.runtime_metric import RuntimeMetric
 from proj2.get_input_size import get_input_size
 from proj2.get_valid_char import get_valid_char
+from proj2.modify_strings import *
 
 
 def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
@@ -34,7 +35,7 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
 
     # Remove the read in character from the string
     else:
-        in_str = in_str[1:]
+        in_str = remove_first_character(in_str)
 
     # Read in the next character
     temp, in_str = get_valid_char(in_str)
@@ -72,7 +73,7 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
         char1_infix = temp
 
         # Remove char1 from the string
-        in_str = in_str[1:]
+        in_str = remove_first_character(in_str)
 
     # Read in next character
     temp, in_str = get_valid_char(in_str)
@@ -110,7 +111,7 @@ def convert_prefix_to_postfix_recursive(in_str: str) -> tuple:
         char2_infix = temp
 
         # Remove char2 from the string
-        in_str = in_str[1:]
+        in_str = remove_first_character(in_str)
 
     # Assemble postfix notation for current operand 1 in char1, operand 2 in
     # char2 and operator in char
@@ -186,8 +187,11 @@ def starter_func(input_file: TextIO, output_file: TextIO) -> None:
             else:
                 output_file.write(f"Postfix: {post}\n")
 
+                # Remove the extra outside parenthesis from infix expression
+                infix_mod = remove_first_and_last_character(infix)
+
                 # Write the corresponding infix expression to the output file
-                output_file.write(f"Infix: {infix[1:-1]}\n\n")
+                output_file.write(f"Infix: {infix_mod}\n\n")
 
     # End time for analyzing computation time of input
     end_time = time_ns()
