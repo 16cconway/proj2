@@ -1,0 +1,10 @@
+Prefix: ++A-*$BCD/+EF*GHI
+Postfix: ABC$D*EF+GH*/-+I+
+Infix: (A+(((B$C)*D)-((E+F)/(G*H))))+I
+
+Prefix: +-$ABC*D**EFG
+Postfix: AB$C-DEF*G**+
+Infix: ((A$B)-C)+(D*((E*F)*G))
+
+Input Size: 32
+Run Time: 127000ns

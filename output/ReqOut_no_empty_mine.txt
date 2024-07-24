@@ -1,0 +1,42 @@
+Prefix: -+ABC
+Postfix: AB+C-
+Infix: (A+B)-C
+
+Prefix: -A+BC
+Postfix: ABC+-
+Infix: A-(B+C)
+
+Prefix: $+-ABC+D-EF
+Postfix: AB-C+DEF-+$
+Infix: ((A-B)+C)$(D+(E-F))
+
+Prefix: -*A$B+C-DE*EF
+Postfix: ABCDE-+$*EF*-
+Infix: (A*(B$(C+(D-E))))-(E*F)
+
+Prefix: **A+BC+C-BA
+Postfix: ABC+*CBA-+*
+Infix: (A*(B+C))*(C+(B-A))
+
+Prefix: /A+BC +C*BA
+Error input line 6: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: *-*-ABC+BA
+Error input line 7: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: /+/A-BC-BA
+Error input line 8: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: *$A+BC+C-BA
+Postfix: ABC+$CBA-+*
+Infix: (A$(B+C))*(C+(B-A))
+
+Prefix: //A+B0-C+BA
+Error input line 10: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
+
+Prefix: *$A^BC+C-BA 
+Postfix: ABC^$CBA-+*
+Infix: (A$(B^C))*(C+(B-A))
+
+Input Size: 119
+Run Time: 443000ns

@@ -1,0 +1,39 @@
+Prefix: ABABAB
+Error input line 1: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: ABA+BAB
+Error input line 2: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: ABA.BAB
+Error input line 3: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: -+AABC-
+Error input line 4: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix: ++A-*$BCD/+EF*GHI
+Postfix: ABC$D*EF+GH*/-+I+
+Infix: (A+(((B$C)*D)-((E+F)/(G*H))))+I
+
+Prefix: +-$ABC*D**EFG
+Postfix: AB$C-DEF*G**+
+Infix: ((A$B)-C)+(D*((E*F)*G))
+
+Prefix:  + - $ A B C * D * * E F G
+Postfix: AB$C-DEF*G**+
+Infix: ((A$B)-C)+(D*((E*F)*G))
+
+Prefix:  + - $ A B  C * D * * E F G
+Postfix: AB$C-DEF*G**+
+Infix: ((A$B)-C)+(D*((E*F)*G))
+
+Prefix:  +++--/
+Error input line 9: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix:  -+AAB-C
+Error input line 10: Expression not in prefix notation. Check that there exists one operator each located on the left of two operands. 
+
+Prefix:  +++0--/
+Error input line 11: Invalid character: '0'. Only accepts alphabet letters and operators +, -, *, /, $, and ^
+
+Input Size: 144
+Run Time: 350000ns
