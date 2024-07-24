@@ -39,5 +39,4 @@ Postfix: ABC^$CBA-+*
 Infix: (A$(B^C))*(C+(B-A))
 
 Input Size: 159
-Run Time: 468000ns
-
+Run Time: 436000ns
