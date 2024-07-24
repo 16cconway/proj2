@@ -1,6 +1,0 @@
-A+AB+AB
-/+AB+AB
--*-ABCDE
-+-ABC+
-//A+B0-C+BA
-*$A^BC+C-BA

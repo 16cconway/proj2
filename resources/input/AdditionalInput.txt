@@ -1,0 +1,11 @@
+ABABAB
+ABA+BAB
+ABA.BAB
+-+AABC-
+++A-*$BCD/+EF*GHI
++-$ABC*D**EFG
+ + - $ A B C * D * * E F G
+ + - $ A B  C * D * * E F G
+ +++--/
+ -+AAB-C
+ +++0--/
